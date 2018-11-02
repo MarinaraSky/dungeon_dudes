@@ -41,23 +41,24 @@ class PlayableCharacter(Character):
         self.rooms = set()
         self.defeated = list()
 
+
 class EnemyCharacter(Character):
-
     enemy_list = ["Alicorn", "Banshee", "Basilisk", "Bigfoot", "Black Dog",
-            "Bogeyman", "Bogle", "Bray Road Beast", "Brownie", "Centaur",
-            "Cerberus", "Charybdis", "Chimera", "Cockatrice", "Cyclops",
-            "Cynocephalus", "Demon", "Doppelganger", "Dragon", "Dwarf",
-            "Echidna", "Elf", "Fairy", "Ghost", "Gnome", "Goblin", "Golem",
-            "Gorgon", "Griffin", "Grim Reaper", "Hobgoblin", "Hydra", "Imp",
-            "Ladon", "Leprechauns", "Loch Ness Monster", "Manticore", "Medusa",
-            "Mermaid", "Minotaur", "Mothman", "Mutant", "Nemean Lion",
-            "New Jersey Devil", "Nymph", "Ogre", "Orthros", "Pegasus",
-            "Phoenix", "Pixie", "Sasquatch", "Satyr", "Scylla", "Sea-Goat",
-            "Shade", "Shapeshifter", "Siren", "Sphinx", "Sprite", "Sylph",
-            "Thunderbird", "Typhon", "Unicorn", "Valkyrie", "Vampire",
-            "Wendigo", "Will-o'-the-wisp", "Werewolf", "Wraith", "Zombie"]
+                  "Bogeyman", "Bogle", "Bray Road Beast", "Brownie", "Centaur",
+                  "Cerberus", "Charybdis", "Chimera", "Cockatrice", "Cyclops",
+                  "Cynocephalus", "Demon", "Doppelganger", "Dragon", "Dwarf",
+                  "Echidna", "Elf", "Fairy", "Ghost", "Gnome", "Goblin",
+                  "Golem", "Gorgon", "Griffin", "Grim Reaper", "Hobgoblin",
+                  "Hydra", "Imp", "Ladon", "Leprechaun", "Loch Ness Monster",
+                  "Manticore", "Medusa", "Mermaid", "Minotaur", "Mothman",
+                  "Mutant", "Nemean Lion", "New Jersey Devil", "Nymph", "Ogre",
+                  "Orthros", "Pegasus", "Phoenix", "Pixie", "Sasquatch",
+                  "Satyr", "Scylla", "Sea-Goat", "Shade", "Shapeshifter",
+                  "Siren", "Sphinx", "Sprite", "Sylph", "Thunderbird",
+                  "Typhon", "Unicorn", "Valkyrie", "Vampire", "Wendigo",
+                  "Will-o'-the-wisp", "Werewolf", "Wraith", "Zombie"]
 
-    loot = [ "Finger Nail", "Newt Hair", "Pinky Toe", "3rd Eye",
+    loot = ["Finger Nail", "Newt Hair", "Pinky Toe", "3rd Eye",
             "Thumbs"]
 
     def __init__(self):
