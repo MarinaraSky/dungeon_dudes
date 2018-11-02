@@ -65,7 +65,7 @@ class EnemyCharacter(Character):
                   "Will-o'-the-wisp", "Werewolf", "Wraith", "Zombie"]
 
     loot = ["Finger Nail", "Newt Hair", "Pinky Toe", "3rd Eye",
-            "Thumbs"]
+            "Thumbs", "Potion"]
 
     def __init__(self):
         super().__init__(choice(self.enemy_list))
