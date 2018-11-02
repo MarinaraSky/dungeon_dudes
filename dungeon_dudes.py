@@ -56,7 +56,7 @@ def adventure(print_roll):
                         player.dice -= 1
                     print(player)
                     print(enemy)
-                elif selection.upper() == "D":
+                elif "Potion" in player.loot and selection.upper() == "D":
                     player.dice += 1
                     player.loot.remove("Potion")
                 elif selection == "1":
