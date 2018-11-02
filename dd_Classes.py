@@ -1,4 +1,5 @@
-from random import randint
+from random import choice, randint, randrange
+
 
 class Character:
 
@@ -9,15 +10,15 @@ class Character:
         self.location = 0
 
     def __str__(self):
-        fmt = "Name: {0} Health:{1}"
-        return fmt.format(self.name, self.health)
+        fmt = "Name: {0} Health: {1} Initiative: {2}"
+        return fmt.format(self.name, self.health, self.initiative)
 
     def roll_dice(self, num_of_dice):
         return [randint(1, 6) for roll in range(num_of_dice)]
 
     def rumble(self, enemy):
         my_roll = max(self.roll_dice(self.dice))
-        enemy_roll = max(enemy.roll_dice(enemy.size))
+        enemy_roll = max(enemy.roll_dice(enemy.dice))
 
         if my_roll > enemy_roll:
             enemy.health -= 1
@@ -36,7 +37,9 @@ class PlayableCharacter(Character):
         super().__init__(name)
         self.health = 10
         self.dice = 3
-        self.loot = list()
+        self.loot = set()
+        self.rooms = set()
+        self.defeated = list()
 
 class EnemyCharacter(Character):
 
@@ -58,11 +61,11 @@ class EnemyCharacter(Character):
             "Thumbs"]
 
     def __init__(self):
-        super().__init__(
-                self.enemy_list.pop(randrange(len(self.enemy_list))))
-        self.size = randint(1, 3)
-        self.health = self.size
+        super().__init__(choice(self.enemy_list))
+        self.enemy_list.remove(self.name)
+        self.dice = randint(1, 3)
+        self.health = self.dice
 
     def drop_loot(self):
-        if len(self.loot) > 0 and (self.size * 2) * 10 > randint(1, 100):
-            return self.loot.pop(randrange(len(self.loot)))
+        if len(self.loot) > 0 and (self.dice * 2) * 10 > randint(1, 100):
+            return choice(self.loot)
