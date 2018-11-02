@@ -24,21 +24,21 @@ class Character:
         my_roll = self.roll_dice(self.dice)
         enemy_roll = enemy.roll_dice(enemy.dice)
         if print_roll:
-            print("Player rolls: ",my_roll)
+            print("Player rolls: ", my_roll)
             print("Enemy rolls: ", enemy_roll)
 
         my_roll = max(my_roll)
         enemy_roll = max(enemy_roll)
 
         hit = "{} hits {}"
-        #Logic to determine who takes damage
+        # Logic to determine who takes damage
         if my_roll > enemy_roll:
             print(hit.format(self.name, enemy.name))
             enemy.health -= 1
         elif my_roll < enemy_roll:
             print(hit.format(enemy.name, self.name))
             self.health -= 1
-        #In case of tie
+        # In case of tie
         else:
             if self.initiative < enemy.initiative:
                 print(hit.format(enemy.name, self.name))
@@ -63,7 +63,7 @@ class PlayableCharacter(Character):
 class EnemyCharacter(Character):
     '''Subclass used for EnemyCharacters'''
 
-    #Enemy list, will be removed when used(no duplicate enemies)
+    # Enemy list, will be removed when used(no duplicate enemies)
     enemy_list = ["Alicorn", "Banshee", "Basilisk", "Bigfoot", "Black Dog",
                   "Bogeyman", "Bogle", "Bray Road Beast", "Brownie", "Centaur",
                   "Cerberus", "Charybdis", "Chimera", "Cockatrice", "Cyclops",
@@ -79,10 +79,10 @@ class EnemyCharacter(Character):
                   "Typhon", "Unicorn", "Valkyrie", "Vampire", "Wendigo",
                   "Will-o'-the-wisp", "Werewolf", "Wraith", "Zombie"]
 
-    #Enemy size descriptor, based off number of dice
+    # Enemy size descriptor, based off number of dice
     enemy_size = ["Frail", "Moderately-Sized", "Hulking"]
 
-    #Possible loot from any enemy, will be removed if picked up
+    # Possible loot from any enemy, will be removed if picked up
     loot = ["Finger Nail", "Newt Hair", "Pinky Toe", "3rd Eye",
             "Thumbs", "Potion"]
 

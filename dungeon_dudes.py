@@ -18,7 +18,7 @@ def adventure(print_roll):
     '''Main adventure function. Will loop until all enemies have been
     defeated or until the player dies.'''
     menu = "\n0) Fight\n1) My Health\n2) Enemy Health\n" \
-            "3) Next Room\n4) View Loot Bag\n9) Quit"
+           "3) Next Room\n4) View Loot Bag\n9) Quit"
     bye = "\nGood Bye"
     clear_screen = "\033c"
 
@@ -38,7 +38,8 @@ def adventure(print_roll):
         player.initiative = player.roll_dice(1)[0]
         for enemy in room_enemies:
             enemy_prompt = "A {} {} is standing before you."
-            print(enemy_prompt.format(enemy.enemy_size[enemy.dice - 1], enemy.name))
+            print(enemy_prompt.format(enemy.enemy_size[enemy.dice - 1],
+                  enemy.name))
             while enemy.health != 0 and player.health != 0:
                 print(menu)
                 if "Potion" in player.loot:
@@ -107,7 +108,8 @@ def get_room(player):
     '''Generates the room for the player and enemies to be in'''
     colors = ["Blue", "Red", "Yellow", "Green", "White", "Black",
               "Grey", "Purple"]
-    locations = ["Room", "Beach", "Desert", "Forest", "Swamp", "Cave", "Jungle"]
+    locations = ["Room", "Beach", "Desert", "Forest", "Swamp", "Cave",
+                 "Jungle"]
     adjectives = ["Damp", "Dry", "Wet", "Arid", "Cold", "Hot"]
     room_fmt = "{} {} {}"
     cur_room = room_fmt.format(
