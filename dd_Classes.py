@@ -16,9 +16,15 @@ class Character:
     def roll_dice(self, num_of_dice):
         return [randint(1, 6) for roll in range(num_of_dice)]
 
-    def rumble(self, enemy):
-        my_roll = max(self.roll_dice(self.dice))
-        enemy_roll = max(enemy.roll_dice(enemy.dice))
+    def rumble(self, enemy, print_roll):
+        my_roll = self.roll_dice(self.dice)
+        enemy_roll = enemy.roll_dice(enemy.dice)
+        if print_roll:
+            print("Player rolls: ",my_roll)
+            print("Enemy rolls: ", enemy_roll)
+
+        my_roll = max(my_roll)
+        enemy_roll = max(enemy_roll)
 
         if my_roll > enemy_roll:
             enemy.health -= 1

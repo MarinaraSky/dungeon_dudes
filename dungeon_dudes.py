@@ -1,13 +1,18 @@
 from dd_Classes import *
 from random import choice, randint
 import os
+import sys
 
 
 def main():
-    adventure()
+    if "-d" in sys.argv:
+        print_roll = True
+    else:
+        print_roll = False
+    adventure(print_roll)
 
 
-def adventure():
+def adventure(print_roll):
     menu = "0) Fight\n1) My Health\n2) Enemy Health\n" \
             "3) Next Room\n4) View Loot Bag\n9) Quit"
 
@@ -34,7 +39,7 @@ def adventure():
                     print("\nGood Bye")
                     return
                 if selection == "0":
-                    player.rumble(enemy)
+                    player.rumble(enemy, print_roll)
                     print(player)
                     print(enemy)
                 elif selection == "1":
@@ -74,6 +79,9 @@ def adventure():
     player.defeated.sort(key=lambda defeated: defeated.name)
     for enemy in player.defeated:
         print(enemy.name)
+    print("\033[4mLoot Carried\033[0m")
+    for piece in player.loot:
+        print(piece)
 
 
 def get_room(player):
