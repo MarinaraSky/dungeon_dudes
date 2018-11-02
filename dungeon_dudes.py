@@ -77,8 +77,8 @@ def adventure():
 
 
 def get_room(player):
-    colors = [ "Blue", "Red", "Yellow", "Green", "White", "Black",
-            "Grey", "Purple"]
+    colors = ["Blue", "Red", "Yellow", "Green", "White", "Black",
+              "Grey", "Purple"]
     locations = ["Room", "Beach", "Desert", "Forest", "Swamp", "Cave"]
     adjectives = ["Damp", "Dry", "Wet", "Arid", "Cold", "Hot"]
     room_fmt = "{} {} {}"
