@@ -32,6 +32,8 @@ def adventure(print_roll):
         for enemy in room_enemies:
             while enemy.health != 0 and player.health != 0:
                 print(menu)
+                if "Potion" in player.loot:
+                    print("\nD) Drink Potion")
                 try:
                     selection = input("Selection: ")
                     os.system('clear')
@@ -40,8 +42,13 @@ def adventure(print_roll):
                     return
                 if selection == "0":
                     player.rumble(enemy, print_roll)
+                    if player.dice == 4:
+                        player.dice -= 1
                     print(player)
                     print(enemy)
+                elif selection.upper() == "D":
+                    player.dice += 1
+                    player.loot.remove("Potion")
                 elif selection == "1":
                     print(player)
                 elif selection == "2":
