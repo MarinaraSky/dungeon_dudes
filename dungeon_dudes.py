@@ -9,6 +9,14 @@ def main():
     '''Main of dungeon_dudes'''
     if "-d" in sys.argv:
         print_roll = True
+    elif ("-h" or "--help") in sys.argv:
+        print("Usage: ./dungeon_dudes [-h | --help] [-d]")
+        print("-h, --help: Usage statement")
+        print("-d: Print combat dice rolls.")
+        return
+    elif len(sys.argv) > 1:
+        print("Unknown parameter. Exitting.")
+        return
     else:
         print_roll = False
     adventure(print_roll)
